@@ -1,76 +1,45 @@
+import { NavLink } from "react-router-dom";
+import Logo from "../../assets/logo.svg"; // Import the Logo component
+
 const Navbar = () => {
+  const navlinks = [
+    { path: "/", name: "Home" },
+    { path: "/about-me", name: "About Me" },
+    { path: "/projects", name: "Projects" },
+    { path: "/skills", name: "Skills" },
+    { path: "/experience", name: "Experience" },
+    { path: "/contact", name: "Contact" },
+    { path: "/resume", name: "Resume" },
+  ];
+
   return (
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
-        </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+    <nav className="flex justify-between items-center container left-[50%] translate-x-[-50%] md:px-10 fixed py-3 z-50 ">
+      {/* Logo */}
+      <div>
+        <img className="w-9" src={Logo} alt="" />
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
+
+      {/* Links */}
+      <div>
+        <ul className="flex gap-12">
+          {navlinks.map((link, idx) => {
+            const lastIdx = navlinks.length - 1;
+            return (
+              <li className="flex items-center gap-12" key={idx}>
+                <NavLink to={link.path}>
+                  <div className="uppercase font-semibold text-white text-sm">
+                    {link.name}
+                  </div>
+                </NavLink>
+                {idx !== lastIdx && (
+                  <div className="w-[5px] h-[5px] bg-red-600 rounded-full"></div>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
-      </div>
-    </div>
+    </nav>
   );
 };
 
