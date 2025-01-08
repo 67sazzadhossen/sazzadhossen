@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.svg"; // Import the Logo component
 import { motion } from "motion/react";
+import { useState } from "react";
 
 const Navbar = () => {
   const navlinks = [
@@ -12,6 +13,8 @@ const Navbar = () => {
     { path: "/contact", name: "Contact" },
     { path: "/resume", name: "Resume" },
   ];
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="flex justify-between items-center container left-[50%] translate-x-[-50%] md:px-10 px-4 fixed py-3 z-50 prosto text-xs">
@@ -54,10 +57,39 @@ const Navbar = () => {
 
       {/* mobile nav */}
 
-      <div className="space-y-1">
-        <div className="w-4 h-[2px] bg-white "></div>
-        <div className="w-4 h-[2px] bg-white "></div>
-        <div className="w-4 h-[2px] bg-white "></div>
+      <div onClick={() => setIsOpen(!isOpen)} className="space-y-1">
+        <motion.div
+          animate={isOpen ? "open" : "closed"}
+          initial={"closed"}
+          variants={{
+            open: {
+              y: 6,
+              rotate: -45,
+            },
+          }}
+          className="w-4 h-[2px] bg-white "
+        ></motion.div>
+        <motion.div
+          animate={isOpen ? "open" : "closed"}
+          initial={"closed"}
+          variants={{
+            open: {
+              rotate: -45,
+            },
+          }}
+          className="w-4 h-[2px] bg-white "
+        ></motion.div>
+        <motion.div
+          animate={isOpen ? "open" : "closed"}
+          initial={"closed"}
+          variants={{
+            open: {
+              y: -6,
+              rotate: 45,
+            },
+          }}
+          className="w-4 h-[2px] bg-white "
+        ></motion.div>
       </div>
     </nav>
   );
