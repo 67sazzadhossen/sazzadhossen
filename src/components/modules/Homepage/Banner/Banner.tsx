@@ -15,7 +15,7 @@ const Banner = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
         viewport={{ once: false }}
-        className="lg:absolute"
+        className="lg:absolute hidden md:block"
       >
         <Scene />
       </motion.div>
