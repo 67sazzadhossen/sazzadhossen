@@ -1,35 +1,37 @@
 import { motion } from "motion/react";
 import Scene from "./Scene";
 import { MdEmail } from "react-icons/md";
-import { BsChevronCompactDown, BsGithub } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
 import { LiaLinkedin } from "react-icons/lia";
 import { FaFacebook } from "react-icons/fa";
 import { GrDown } from "react-icons/gr";
 
 const Banner = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-bl from-blue-800 to-my-bg relative flex flex-col justify-center items-center">
+    <div className="min-h-screen bg-gradient-to-bl from-blue-800 to-my-bg relative flex flex-col justify-center items-center pt-12 md:pt-0">
+      {/* animation */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
         viewport={{ once: false }}
-        className="absolute"
+        className="lg:absolute"
       >
         <Scene />
       </motion.div>
 
+      {/* description */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
         viewport={{ once: false }}
-        className="text-white w-2/3 z-40 text-center space-y-4 prosto"
+        className="text-white md:w-2/3 z-40 text-center space-y-4 prosto px-4 md:px-0"
       >
-        <h4 className="text-xl uppercase font-bold tracking-widest">
+        <h4 className="md:text-xl uppercase font-bold tracking-widest">
           Md Sazzad Hossen
         </h4>
-        <h1 className="text-5xl uppercase font-bold tracking-widest">
+        <h1 className="md:text-5xl uppercase font-bold tracking-widest">
           Full Stack Web Developer
         </h1>
         <p className="">
@@ -42,6 +44,7 @@ const Banner = () => {
         </p>
       </motion.div>
 
+      {/* icons */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -53,6 +56,8 @@ const Banner = () => {
         <LiaLinkedin />
         <FaFacebook />
       </motion.div>
+
+      {/* sroll down */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}

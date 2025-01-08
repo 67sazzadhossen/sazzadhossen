@@ -33,7 +33,7 @@ export function Model() {
   });
 
   return (
-    <group scale={viewport.width / 3}>
+    <group scale={viewport.width / 2}>
       <mesh
         ref={mesh}
         castShadow

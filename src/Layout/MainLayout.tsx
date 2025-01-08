@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="scrollbar">
       <Navbar />
       <div className="min-h-screen">
         <Outlet />

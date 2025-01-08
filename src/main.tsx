@@ -7,6 +7,8 @@ import { router } from "./Router/route.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <div className="scrollbar">
+      <RouterProvider router={router}></RouterProvider>
+    </div>
   </StrictMode>
 );
