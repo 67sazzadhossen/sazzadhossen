@@ -8,7 +8,7 @@ import { GrDown } from "react-icons/gr";
 
 const Banner = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-bl from-blue-800 to-my-bg relative flex flex-col justify-center items-center pt-12 md:pt-0">
+    <div className="min-h-screen bg-gradient-to-bl from-blue-800 to-my-bg relative flex flex-col justify-center items-center pt-6 md:pt-0">
       {/* animation */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
