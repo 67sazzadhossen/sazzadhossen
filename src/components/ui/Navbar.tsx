@@ -114,7 +114,6 @@ const Navbar = () => {
         className="absolute  space-y-6 top-0 z-0 bg-gradient-to-bl from-blue-800 to-my-bg  w-full  left-0 right-0 flex flex-col justify-center items-center"
       >
         {navlinks.map((link, idx) => {
-          const lastIdx = navlinks.length - 1;
           return (
             <>
               <motion.li
