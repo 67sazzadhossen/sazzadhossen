@@ -115,6 +115,15 @@
   }
 }
 
+@layer components {
+  .my-bg {
+    @apply bg-gradient-to-bl from-blue-900 to-my-bg;
+  }
+  .my-bg-reverse {
+    @apply bg-gradient-to-tl from-blue-900 to-my-bg;
+  }
+}
+
 .prosto {
   font-family: "Prosto One", serif;
   font-weight: 400;
