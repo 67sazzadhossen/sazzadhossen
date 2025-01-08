@@ -20,7 +20,7 @@ const Aboutme = () => {
           {/* profile image */}
           <div className="lg:w-1/2">
             <motion.img
-              initial={{ opacity: 0, x: -300 }}
+              initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: false }}
@@ -31,7 +31,7 @@ const Aboutme = () => {
 
           {/* description */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
             viewport={{ once: false }}
