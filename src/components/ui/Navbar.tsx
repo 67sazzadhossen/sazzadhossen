@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.svg"; // Import the Logo component
+import { motion } from "motion/react";
 
 const Navbar = () => {
   const navlinks = [
@@ -13,11 +14,15 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex justify-between items-center container left-[50%] translate-x-[-50%] md:px-10 fixed py-3 z-50 ">
+    <nav className="flex justify-between items-center container left-[50%] translate-x-[-50%] md:px-10 fixed py-3 z-50 prosto text-xs">
       {/* Logo */}
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+      >
         <img className="w-9" src={Logo} alt="" />
-      </div>
+      </motion.div>
 
       {/* Links */}
       <div>
@@ -25,16 +30,21 @@ const Navbar = () => {
           {navlinks.map((link, idx) => {
             const lastIdx = navlinks.length - 1;
             return (
-              <li className="flex items-center gap-12" key={idx}>
+              <motion.li
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: idx * 0.05 }}
+                className="flex items-center gap-12"
+                key={idx}
+              >
                 <NavLink to={link.path}>
-                  <div className="uppercase font-semibold text-white text-sm">
-                    {link.name}
-                  </div>
+                  <div className="uppercase  text-white ">{link.name}</div>
                 </NavLink>
                 {idx !== lastIdx && (
-                  <div className="w-[5px] h-[5px] bg-red-600 rounded-full"></div>
+                  <div className="w-[5px] h-[5px] bg-red-900 rounded-full"></div>
                 )}
-              </li>
+              </motion.li>
             );
           })}
         </ul>
